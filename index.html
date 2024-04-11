@@ -7,21 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="transport">
-        <div class="navBar">
-            <img src="logo.jpeg" alt="logo" class="logo">
-            <ul>
-                <li> <a href="home">Home</a></li>
-                <li><a href="about"></a>About</li>
-                <li> <a href="contacts"></a>Contacts</li> 
-            </ul>
+    <header class="header">
+        <a href="">logo</a>
+        <nav class="navbar">
+            <a href="#">Home Page</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="stuff">
+            <h3>Making transport easy.</h3>
+            <h1>Public transport in Boston</h1>
+            <h3>For transport: <span class="text"></span></h3>
+            <ul id="locations"></ul>
+            <div class="type">
+                <input type="text" class="input" placeholder="Route name">
+                <button class="submit">Submit</button>
+            </div>
+            <p>
+                Any questions reach out to us in our social media platforms below.
+            </p>
+            <div class="contacts">
+                <a href="#">app</a> 
+                <a href="#">ig</a> 
+                <a href="#">x</a> 
+                <a href="#">07** *** ***</a> 
+            </div>
         </div>
-
-    </div>
-
-
-    <script>
-
-    </script>
+    </section>   
+<script src="main.js"></script>
 </body>
-</html>   
+</html>
