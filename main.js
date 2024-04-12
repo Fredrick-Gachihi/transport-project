@@ -1,17 +1,14 @@
-// let typed = newTyped('.text', {
-// String:["Where to", "Safe journey"],
-// typeSpeed: 100,
-// backSpeed: 100,
-// loop: true,
-// backDelay: 100
-// })
-
 
 function fetchStopData(searchTerm) {
     const url = `https://v6.vbb.transport.rest/locations?query=${searchTerm}`;
   
     fetch(url)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         if (data.length === 0) {
           displayError('No stops found for this search term.');
@@ -21,17 +18,17 @@ function fetchStopData(searchTerm) {
       })
       .catch(error => {
         console.error(error);
-        displayError('An error fetching data.');
+        displayError('An error fetching data. Please check your network connection or API endpoint.');
       });
   }
   
   function displayStops(stopData) {
     const locationsList = document.getElementById('locations');
-    locationsList.innerHTML = '';
+    locationsList.innerHTML = ''; // Clear existing content
   
     stopData.forEach(stop => {
       const listItem = document.createElement('li');
-      listItem.textContent = stop.name;  // Access stop name from API response
+      listItem.textContent = `Stop Name: ${stop.name}  (Products: ${stop.products.join(', ')})`;
       locationsList.appendChild(listItem);
     });
   }
