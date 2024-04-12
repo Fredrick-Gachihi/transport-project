@@ -23,7 +23,7 @@ function fetchStopData(searchTerm) {
   
     stopData.forEach(stop => {
       const listItem = document.createElement('li');
-      listItem.textContent = stop; // Assuming 'stopData' is an array of stop names
+      listItem.textContent = `Stop Name: ${stop.name}  (Stop Products: ${stop.products.join(', ')})`;
       locationsList.appendChild(listItem);
     });
   }
