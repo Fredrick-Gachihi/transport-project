@@ -2,7 +2,7 @@
 function fetchStopData(searchTerm) {
   const url = `https://v6.vbb.transport.rest/locations?query=${searchTerm}`;
 
-  fetch(url)
+  fetch(url)//to get the contents of the url use fetch
     .then(response => response.json())//to return the responce in json
     .then(data => {
       if (data.length === 0) {
