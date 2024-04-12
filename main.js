@@ -48,7 +48,7 @@ submitButton.addEventListener('click', () => {//giving the button functionality
 
   fetchStopData(searchTerm);
 });
-
+//to give the display error message
 function displayError(message) {
   const errorMessageElement = document.getElementById('error-message');
   errorMessageElement.textContent = message;
