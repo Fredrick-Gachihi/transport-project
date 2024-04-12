@@ -39,7 +39,7 @@ function displayStops(stopData) {
 }
 
 const submitButton = document.querySelector('.submit');
-submitButton.addEventListener('click', () => {
+submitButton.addEventListener('click', () => {//giving the button functionality
   const searchTerm = document.querySelector('.input').value.trim();
   if (!searchTerm) {
     displayError('Please enter a search term.');
