@@ -3,12 +3,7 @@ function fetchStopData(searchTerm) {
     const url = `https://v6.vbb.transport.rest/locations?query=${searchTerm}`;
   
     fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`API request failed with status ${response.status}`);
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
         if (data.length === 0) {
           displayError('No stops found for this search term.');
@@ -28,12 +23,12 @@ function fetchStopData(searchTerm) {
   
     stopData.forEach(stop => {
       const listItem = document.createElement('li');
-      listItem.textContent = `Stop Name: ${stop.name}  (Products: ${stop.products.join(', ')})`;
+      listItem.textContent = stop; // Assuming 'stopData' is an array of stop names
       locationsList.appendChild(listItem);
     });
   }
-  
-  const submitButton = document.querySelector('.submit');
+
+  const submitButton = document.querySelector('.submit');//
   submitButton.addEventListener('click', () => {
     const searchTerm = document.querySelector('.input').value.trim();
     if (!searchTerm) {
@@ -43,4 +38,9 @@ function fetchStopData(searchTerm) {
   
     fetchStopData(searchTerm);
   });
-  
+
+  function displayError(message) {
+    const errorMessageElement = document.getElementById('error-message');
+    errorMessageElement.textContent = message; 
+    console.log(error-message);
+}
