@@ -19,7 +19,7 @@ function fetchStopData(searchTerm) {
 
 function displayStops(stopData) {
   const locationsList = document.getElementById('locations');
-  locationsList.innerHTML = ''; 
+  locationsList.innerHTML = ''; // Clears an existing content
 
   stopData.forEach(stop => {
     const listItem = document.createElement('li');
